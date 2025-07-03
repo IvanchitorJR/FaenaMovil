@@ -1,13 +1,11 @@
 import { LineEdit, VerticalBox } from "std-widgets.slint";
 
-export component register inherits Rectangle {
+export component login inherits Rectangle {
+    
+    callback go_to_register;
 
-    callback go_to_login;
-
-    property <string> username: "";
     property <string> email: "";
     property <string> pswd: "";
-    property <string> confirm_pswd: "";
 
     property <string> empty_error: "";
     property <color> empty_error_text_color: #ff0000;
@@ -20,11 +18,10 @@ export component register inherits Rectangle {
 
     VerticalLayout {
         padding: 30px;
-        spacing: 20px;
+        spacing: 32px;
 
         Rectangle {
             height: 280px;
-            background: white;
 
             Text {
                 text: "Faena";
@@ -39,11 +36,11 @@ export component register inherits Rectangle {
             }
 
             Image {
-                source: @image-url("pics/FAENApng.png");
+                source: @image-url("../img/FAENApng.png");
             }
 
             Text {
-                text: "Crea una cuenta para unirte a la Faenation";
+                text: "Regístrate o inicia sesión en la app para unirte a la Faenation";
                 horizontal-alignment: center;
                 vertical-alignment: bottom;
                 height: parent.height;
@@ -54,11 +51,13 @@ export component register inherits Rectangle {
             }
         }
 
+        //Iniciar Sesión (Correo Electrónico)
         VerticalLayout {
-            spacing: 4px;
+            spacing: 10px;
 
             //Errores
             Rectangle {
+                height: 15px;
                 background: transparent;
 
                 Text {
@@ -71,7 +70,7 @@ export component register inherits Rectangle {
                 }
             }
 
-            //Registrarse (Nombre de Usuario)
+            //Iniciar Sesión (Correo Electrónico)
             Rectangle {
                 height: 40px;
                 border-width: 2px;
@@ -80,32 +79,7 @@ export component register inherits Rectangle {
                 background: #b5b8bb;
 
                 /*Text {
-                    text: "Nombre de Usuario";
-                    font-size: 16px;
-                    color: #e8e8e8;
-                }*/
-
-                LineEdit {
-                    text <=> root.username;
-                    width: 100%;
-                    height: 40px;
-                    font-size: 16px;
-                    horizontal-alignment: center;
-                    placeholder-text: "Nombre de Usuario";
-                    input-type: text;
-                }
-            }
-
-            //Registrarse (Correo Electrónico)
-            Rectangle {
-                height: 40px;
-                border-width: 2px;
-                border-color: root.input_border_color;
-                border-radius: 10px;
-                background: #b5b8bb;
-
-                /*Text {
-                    text: "Correo Electrónico";
+                    text: "Correo electrónico";
                     font-size: 16px;
                     color: #e8e8e8;
                 }*/
@@ -116,12 +90,12 @@ export component register inherits Rectangle {
                     height: 40px;
                     font-size: 16px;
                     horizontal-alignment: center;
-                    placeholder-text: "Correo Electrónico";
+                    placeholder-text: "Correo electrónico";
                     input-type: text;
                 }
             }
 
-            //Registrarse (Contraseña)
+            //Iniciar Sesión (Contraseña)
             Rectangle {
                 height: 40px;
                 border-width: 2px;
@@ -146,37 +120,12 @@ export component register inherits Rectangle {
                 }
             }
 
-            //Registrarse (Confirmar Contraseña)
             Rectangle {
-                height: 40px;
-                border-width: 2px;
-                border-color: root.input_border_color;
-                border-radius: 10px;
-                background: #b5b8bb;
-
-                /*Text {
-                    text: "Confirmar Contraseña";
-                    font-size: 16px;
-                    color: #e8e8e8;
-                }*/
-
-                LineEdit {
-                    text <=> root.confirm_pswd;
-                    width: 100%;
-                    height: 40px;
-                    font-size: 16px;
-                    horizontal-alignment: center;
-                    placeholder-text: "Confirmar Contraseña";
-                    input-type: password;
-                }
-            }
-
-            Rectangle {
-                height: 10px;
                 background: transparent;
+                height: 20px;
             }
 
-            //Botón Registro
+            //Botón Iniciar Sesión
             VerticalLayout {
                 padding-left: 30px;
                 padding-right: 30px;
@@ -191,26 +140,21 @@ export component register inherits Rectangle {
                     padding-right: 20px;
 
                     TouchArea {
-                        clicked => { 
-                            if (root.username == "" || root.email == "" || root.pswd == "" || root.confirm_pswd == "") {
-                                root.empty_error = "No puede haber campos vacíos";
+                        clicked => {
+                            if (root.email == "" || root.pswd == "") {
+                                root.empty_error = "Usuario y/o contraseña incorrectos";
                                 root.empty_error_text_color = #ff0000;
                                 root.input_border_color = #ff0000;
-                            }
-                            else if (root.pswd != root.confirm_pswd) {
-                                root.empty_error = "Las contraseñas no coinciden";
-                                root.empty_error_text_color = #ff0000;
-                                root.input_border_color = #ff0000;
-                            }
+                            } 
                             else {
-                                root.empty_error = "Cuenta creada exitosamente";
+                                root.empty_error = "Login exitoso";
                                 root.empty_error_text_color = #00aa00;
                                 root.input_border_color = #00aa00;
-                            }
+                            } 
                         }
 
                         Text {
-                            text: "Crear Cuenta";
+                            text: "Iniciar Sesión";
                             color: black;
                             font-size: 16px;
                             font-weight: 700;
@@ -221,30 +165,33 @@ export component register inherits Rectangle {
                 }
             }
 
-            //Link a login
+            //Link a registro
             VerticalLayout {
 
                 Text {
-                    text: "¿Ya tienes cuenta?";
+                    text: "¿Aún no tienes cuenta?";
+                    height: 18px;
                     font-size: 14px;
                     color: black;
                     font-weight: 500;
+                    horizontal-alignment: left;
                 }
 
                 TouchArea {
                     height: 18px;
 
                     clicked => { 
-                        root.go_to_login(); 
+                        root.go_to_register(); 
                     }
 
                     Text {
-                        text: "Iniciar sesión";
+                        width: parent.width;
+                        height: 18px;
+                        text: "Crear una cuenta";
                         font-size: 14px;
                         font-weight: 500;
                         color: #6a95b3;
                         horizontal-alignment: left;
-                        width: parent.width;
                     }
                 }
             }

@@ -1,4 +1,4 @@
-import { Styles } from "styles.slint";
+import { Styles } from "../styles/styles.slint";
 import { VerticalBox } from "std-widgets.slint";
 export component welcomeFaena inherits Rectangle {
 
@@ -78,6 +78,7 @@ export component welcomeFaena inherits Rectangle {
 
                     clicked => {
                         root.go_to_login();
+                        debug("llama");
                     }
                 }
             }
