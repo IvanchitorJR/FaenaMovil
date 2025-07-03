@@ -4,23 +4,23 @@ export component welcomeFaena inherits Rectangle {
 
     callback go_to_login;
 
-    height: 640px;
-    width: 360px;
+    height: 836px;
+    width: 425px;
     background: Styles.welcomeGradient;
 
     VerticalLayout {
-        padding: 20px;
-
-        Rectangle {
+        padding: 16px;
+        y: 60px;
+        Rectangle { //bienvenido a faena text
             height: 200px;
-
             Text {
                 text: "Bienvenido";
-                font-size: 60px;
+                font-size: 70px;
                 width: parent.width;
                 height: parent.height;
-                font-weight: 700;
+                font-weight: Styles.black;
                 vertical-alignment: top;
+                color: Styles.blanco;
             }
 
             Rectangle {
@@ -29,9 +29,9 @@ export component welcomeFaena inherits Rectangle {
 
                 Text {
                     text: "a Faena";
-                    font-size: 60px;
-                    color: white;
-                    font-weight: 700;
+                    font-size: 70px;
+                    color: Styles.blanco;
+                    font-weight: Styles.black;
                     vertical-alignment: top;
                     height: parent.height;
                     width: parent.width;
@@ -39,7 +39,7 @@ export component welcomeFaena inherits Rectangle {
             }
         }
 
-        Rectangle {
+        Rectangle { //sub texto
             height: 290px;
             //background: green;
 
@@ -47,10 +47,11 @@ export component welcomeFaena inherits Rectangle {
                 text: "La plataforma que te otorga votaciones digitales de forma segura";
                 height: parent.height;
                 width: parent.width;
-                font-size: 35px;
-                font-weight: 600;
+                font-size: 36px;
+                font-weight: Styles.bold;
                 letter-spacing: 1px;
                 vertical-alignment: top;
+                color: Styles.platino;
             }
         }
 
@@ -58,18 +59,19 @@ export component welcomeFaena inherits Rectangle {
             alignment: end;
 
             Rectangle {
-                height: 50px;
-                width: 100px;
+                y: 130px;
+                height: 56px;
+                width: 128px;
                 border-radius: 50px;
                 background: white;
                 drop-shadow-color: black;
-                drop-shadow-blur: 7px;
+                drop-shadow-blur: 4px;
 
                 Text {
                     text: "Siguiente";
-                    color: #364d7b;
+                    color: Styles.azul-fuerte;
                     font-size: 16px;
-                    font-weight: 700;
+                    font-weight: Styles.bold;
                     horizontal-alignment: center;
                     vertical-alignment: center;
                 }
@@ -78,7 +80,6 @@ export component welcomeFaena inherits Rectangle {
 
                     clicked => {
                         root.go_to_login();
-                        debug("llama");
                     }
                 }
             }

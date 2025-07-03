@@ -1,0 +1,23 @@
+import { Button, StyleMetrics } from "std-widgets.slint";
+import { Styles } from "../styles/styles.slint";
+export component botonPrincipal{
+    width: 231px;
+    height: 52px;
+    Rectangle {
+        background: Styles.azul-verde;
+        border-radius: 16px;
+        Button {
+            width: root.width;
+            height: root.height;
+            clicked => {
+                debug("click");
+            }
+        }
+        Text {
+            text: "Iniciar sesion";
+            font-size: 20px;
+            font-weight: Styles.semibold;
+            color: Styles.negro;
+        }
+    }
+}
