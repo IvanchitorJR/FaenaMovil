@@ -1,0 +1,86 @@
+import { Styles } from "styles.slint";
+import { VerticalBox } from "std-widgets.slint";
+export component welcomeFaena inherits Rectangle {
+
+    callback go_to_login;
+
+    height: 640px;
+    width: 360px;
+    background: Styles.welcomeGradient;
+
+    VerticalLayout {
+        padding: 20px;
+
+        Rectangle {
+            height: 200px;
+
+            Text {
+                text: "Bienvenido";
+                font-size: 60px;
+                width: parent.width;
+                height: parent.height;
+                font-weight: 700;
+                vertical-alignment: top;
+            }
+
+            Rectangle {
+                width: parent.width;
+                height: 80px;
+
+                Text {
+                    text: "a Faena";
+                    font-size: 60px;
+                    color: white;
+                    font-weight: 700;
+                    vertical-alignment: top;
+                    height: parent.height;
+                    width: parent.width;
+                }
+            }
+        }
+
+        Rectangle {
+            height: 290px;
+            //background: green;
+
+            Text {
+                text: "La plataforma que te otorga votaciones digitales de forma segura";
+                height: parent.height;
+                width: parent.width;
+                font-size: 35px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                vertical-alignment: top;
+            }
+        }
+
+        HorizontalLayout {
+            alignment: end;
+
+            Rectangle {
+                height: 50px;
+                width: 100px;
+                border-radius: 50px;
+                background: white;
+                drop-shadow-color: black;
+                drop-shadow-blur: 7px;
+
+                Text {
+                    text: "Siguiente";
+                    color: #364d7b;
+                    font-size: 16px;
+                    font-weight: 700;
+                    horizontal-alignment: center;
+                    vertical-alignment: center;
+                }
+
+                TouchArea {
+
+                    clicked => {
+                        root.go_to_login();
+                    }
+                }
+            }
+        }
+    }
+}
