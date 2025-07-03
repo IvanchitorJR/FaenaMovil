@@ -62,20 +62,7 @@ export component login inherits Rectangle {
         //Iniciar Sesión (Correo Electrónico)
         VerticalLayout {
             spacing: 30px;
-            padding-top: 30px;
-            //Errores
-            Rectangle {
-                height: 15px;
-                background: transparent;
-                Text {
-                    text: root.empty_error;
-                    color: root.empty_error_text_color;
-                    horizontal-alignment: left;
-                    font-size: 10px;
-                    font-weight: 500;
-                    width: parent.width;
-                }
-            }
+            padding-top: 50px;
 
             //Iniciar Sesión (Correo Electrónico)
             HorizontalBox { //box para centrar el contenido
@@ -133,15 +120,22 @@ export component login inherits Rectangle {
                 }
             }
             }
+            //Errores
             Rectangle {
+                height: 15px;
                 background: transparent;
-                height: 20px;
+                Text {
+                    text: root.empty_error;
+                    color: root.empty_error_text_color;
+                    horizontal-alignment: center;
+                    font-size: 16px;
+                    font-weight: Styles.semibold;
+                    width: parent.width;
+                }
             }
-
             //Botón Iniciar Sesión
-            VerticalLayout {
-                padding-left: 30px;
-                padding-right: 30px;
+            HorizontalLayout {
+                alignment: center;
                 botonPrincipal {
                     click => {
                             if (root.email == "" || root.pswd == "") {
@@ -160,13 +154,13 @@ export component login inherits Rectangle {
 
             //Link a registro
             VerticalLayout {
-
+                spacing: 10px;
                 Text {
                     text: "¿Aún no tienes cuenta?";
                     height: 18px;
-                    font-size: 14px;
-                    color: black;
-                    font-weight: 500;
+                    font-size: 20px;
+                    color: Styles.negro;
+                    font-weight: Styles.semibold;
                     horizontal-alignment: left;
                 }
 
@@ -181,10 +175,10 @@ export component login inherits Rectangle {
                         width: parent.width;
                         height: 18px;
                         text: "Crear una cuenta";
-                        font-size: 14px;
-                        font-weight: 500;
-                        color: #6a95b3;
-                        horizontal-alignment: left;
+                        font-size: 20px;
+                        font-weight: Styles.semibold;
+                        color: Styles.azul-verde;
+                        horizontal-alignment: left;        
                     }
                 }
             }
