@@ -1,4 +1,5 @@
-import { LineEdit, VerticalBox } from "std-widgets.slint";
+import { LineEdit, VerticalBox, HorizontalBox } from "std-widgets.slint";
+import { Styles } from "../styles/styles.slint";
 
 export component login inherits Rectangle {
     
@@ -14,52 +15,57 @@ export component login inherits Rectangle {
     height: 836px;
     width: 425px;
 
-    background: white;
+    background: Styles.blanco;
 
     VerticalLayout {
         padding: 30px;
         spacing: 32px;
+        y: 20px;
 
         Rectangle {
             height: 280px;
-
             Text {
                 text: "Faena";
-                font-size: 65px;
-                font-weight: 900;
+                font-size: 96px;
+                font-weight: Styles.black;
                 font-family: "Source Sans Pro";
-                color: #364d7b;
+                color: Styles.azul-fuerte;
                 height: parent.height;
                 width: parent.width;
                 horizontal-alignment: center;
                 vertical-alignment: top;
             }
-
-            Image {
-                source: @image-url("../img/FAENApng.png");
+            Rectangle {
+                y: 40px;
+                Image {
+                    height: 177px;
+                    width: 177px;
+                    source: @image-url("../img/FAENApng.png");
+                }
             }
-
-            Text {
-                text: "Regístrate o inicia sesión en la app para unirte a la Faenation";
-                horizontal-alignment: center;
-                vertical-alignment: bottom;
-                height: parent.height;
-                width: parent.width;
-                font-size: 16px;
-                color: #6a95b3;
-                font-weight: 500;
+            Rectangle {
+                y: 40px;
+                Text {
+                    text: "Regístrate o inicia sesión en la app para unirte a la Faenation";
+                    horizontal-alignment: center;
+                    vertical-alignment: bottom;
+                    height: parent.height;
+                    width: parent.width;
+                    font-size: 20px;
+                    color: Styles.azul-bajo;
+                    font-weight: Styles.bold;
+                }
             }
         }
 
         //Iniciar Sesión (Correo Electrónico)
         VerticalLayout {
-            spacing: 10px;
-
+            spacing: 30px;
+            padding-top: 30px;
             //Errores
             Rectangle {
                 height: 15px;
                 background: transparent;
-
                 Text {
                     text: root.empty_error;
                     color: root.empty_error_text_color;
@@ -71,13 +77,15 @@ export component login inherits Rectangle {
             }
 
             //Iniciar Sesión (Correo Electrónico)
+            HorizontalBox { //box para centrar el contenido
+                alignment: center;
             Rectangle {
+                width: 272px;
                 height: 40px;
                 border-width: 2px;
-                border-color: root.input_border_color;
+                border-color: Styles.gris;
                 border-radius: 10px;
-                background: #b5b8bb;
-
+                background: #c5c5c5;
                 /*Text {
                     text: "Correo electrónico";
                     font-size: 16px;
@@ -94,14 +102,18 @@ export component login inherits Rectangle {
                     input-type: text;
                 }
             }
+            }
 
             //Iniciar Sesión (Contraseña)
+            HorizontalBox { //box para centrar el contenido
+                alignment: center;
             Rectangle {
+                width: 272px;
                 height: 40px;
                 border-width: 2px;
-                border-color: root.input_border_color;
+                border-color: Styles.gris;
                 border-radius: 10px;
-                background: #b5b8bb;
+                background: #c5c5c5;
 
                 /*Text {
                     text: "Contraseña";
@@ -119,7 +131,7 @@ export component login inherits Rectangle {
                     input-type: password;
                 }
             }
-
+            }
             Rectangle {
                 background: transparent;
                 height: 20px;
