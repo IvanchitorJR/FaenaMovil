@@ -1,0 +1,33 @@
+import { Styles } from "../styles/styles.slint";
+import { HorizontalBox } from "std-widgets.slint";
+
+export component Navbar inherits Rectangle {
+    width: 365px;
+    height: 64px;
+    background: Styles.azul-fuerte;
+
+    HorizontalBox {
+        padding: 0px;
+        spacing: 0px;
+        width: parent.width;
+        height: parent.height;
+        
+        Rectangle {
+            width: parent.width / 3;
+            height: parent.height;
+            background: Styles.azul-bajo;
+        }
+
+        Rectangle {
+            width: parent.width / 3;
+            height: parent.height;
+            background: Styles.azul-verde;
+        }
+
+        Rectangle {
+            width: parent.width / 3;
+            height: parent.height;
+            background: white;
+        }
+    }
+}
