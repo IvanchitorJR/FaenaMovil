@@ -1,5 +1,6 @@
 import { LineEdit, VerticalBox, HorizontalBox } from "std-widgets.slint";
 import { Styles } from "../styles/styles.slint";
+import { botonPrincipal } from "../components/boton-prinicipal.slint";
 
 export component login inherits Rectangle {
     
@@ -20,7 +21,7 @@ export component login inherits Rectangle {
     VerticalLayout {
         padding: 30px;
         spacing: 32px;
-        y: 20px;
+        y: 10px;
 
         Rectangle {
             height: 280px;
@@ -141,18 +142,8 @@ export component login inherits Rectangle {
             VerticalLayout {
                 padding-left: 30px;
                 padding-right: 30px;
-
-                Rectangle {
-                    height: 40px;
-                    background: #6a95b3;
-                    border-radius: 10px;
-                    drop-shadow-color: black;
-                    drop-shadow-blur: 4px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-
-                    TouchArea {
-                        clicked => {
+                botonPrincipal {
+                    click => {
                             if (root.email == "" || root.pswd == "") {
                                 root.empty_error = "Usuario y/o contraseña incorrectos";
                                 root.empty_error_text_color = #ff0000;
@@ -164,16 +155,6 @@ export component login inherits Rectangle {
                                 root.input_border_color = #00aa00;
                             } 
                         }
-
-                        Text {
-                            text: "Iniciar Sesión";
-                            color: black;
-                            font-size: 16px;
-                            font-weight: 700;
-                            horizontal-alignment: center;
-                            vertical-alignment: center;
-                        }
-                    }
                 }
             }
 

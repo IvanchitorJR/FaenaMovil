@@ -1,6 +1,7 @@
 import { Button, StyleMetrics } from "std-widgets.slint";
 import { Styles } from "../styles/styles.slint";
 export component botonPrincipal{
+    callback click();
     width: 231px;
     height: 52px;
     Rectangle {
@@ -10,7 +11,7 @@ export component botonPrincipal{
             width: root.width;
             height: root.height;
             clicked => {
-                debug("click");
+                root.click();
             }
         }
         Text {
