@@ -1,6 +1,6 @@
 import { LineEdit, VerticalBox, HorizontalBox } from "std-widgets.slint";
 import { Styles } from "../styles/styles.slint";
-
+import { botonPrincipal } from "../components/boton-prinicipal.slint";
 export component login inherits Rectangle {
     
     callback go_to_register;
@@ -138,7 +138,13 @@ export component login inherits Rectangle {
             }
 
             //Botón Iniciar Sesión
-            VerticalLayout {
+            HorizontalBox {
+                alignment: center;
+
+                botonPrincipal {}
+            }
+            
+            /*VerticalLayout {
                 padding-left: 30px;
                 padding-right: 30px;
 
@@ -175,7 +181,7 @@ export component login inherits Rectangle {
                         }
                     }
                 }
-            }
+            }*/
 
             //Link a registro
             VerticalLayout {
