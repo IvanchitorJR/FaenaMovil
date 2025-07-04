@@ -2,6 +2,7 @@ import { Button, StyleMetrics } from "std-widgets.slint";
 import { Styles } from "../styles/styles.slint";
 export component botonPrincipal{
     callback click();
+    in property <string> texto;
     width: 231px;
     height: 52px;
     Rectangle {
@@ -17,7 +18,7 @@ export component botonPrincipal{
             }
         }
         Text {
-            text: "Iniciar sesion";
+            text: texto;
             font-size: 20px;
             font-weight: Styles.semibold;
             color: Styles.negro;

@@ -95,6 +95,7 @@ export component login inherits Rectangle {
             HorizontalLayout {
                 alignment: center;
                 botonPrincipal {
+                    texto: "Iniciar sesión";
                     click => {
                             if (root.email == "" || root.pswd == "") {
                                 root.empty_error = "Usuario y/o contraseña incorrectos";
