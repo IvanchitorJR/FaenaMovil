@@ -1,6 +1,7 @@
 import { LineEdit, VerticalBox, HorizontalBox } from "std-widgets.slint";
 import { Styles } from "../styles/styles.slint";
 import { botonPrincipal } from "../components/boton-prinicipal.slint";
+import { inputRegistro } from "../components/input-registro.slint";
 
 export component login inherits Rectangle {
     
@@ -65,60 +66,17 @@ export component login inherits Rectangle {
             padding-top: 50px;
 
             //Iniciar Sesión (Correo Electrónico)
-            HorizontalBox { //box para centrar el contenido
-                alignment: center;
-            Rectangle {
-                width: 272px;
-                height: 40px;
-                border-width: 2px;
-                border-color: Styles.gris;
-                border-radius: 10px;
-                background: #c5c5c5;
-                /*Text {
-                    text: "Correo electrónico";
-                    font-size: 16px;
-                    color: #e8e8e8;
-                }*/
-
-                LineEdit {
-                    text <=> root.email;
-                    width: 100%;
-                    height: 40px;
-                    font-size: 16px;
-                    horizontal-alignment: center;
-                    placeholder-text: "Correo electrónico";
-                    input-type: text;
-                }
-            }
+            inputRegistro {
+                texto <=> root.email;
+                placeholder: "Correo electronico";
+                tipo: text;
             }
 
             //Iniciar Sesión (Contraseña)
-            HorizontalBox { //box para centrar el contenido
-                alignment: center;
-            Rectangle {
-                width: 272px;
-                height: 40px;
-                border-width: 2px;
-                border-color: Styles.gris;
-                border-radius: 10px;
-                background: #c5c5c5;
-
-                /*Text {
-                    text: "Contraseña";
-                    font-size: 16px;
-                    color: #e8e8e8;
-                }*/
-
-                LineEdit {
-                    text <=> root.pswd;
-                    width: 100%;
-                    height: 40px;
-                    font-size: 16px;
-                    horizontal-alignment: center;
-                    placeholder-text: "Contraseña";
-                    input-type: password;
-                }
-            }
+            inputRegistro {
+                texto <=> root.pswd;
+                placeholder: "Contraseña";
+                tipo: password;
             }
             //Errores
             Rectangle {
